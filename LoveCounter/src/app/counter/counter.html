@@ -1,9 +1,15 @@
-<div class="w-[70vw] h-[21vh] mt-[7vh] ml-[15vw] bg-white rounded-2xl shadow-2xl relative p-[4%]">
-    <h3 class="text-black text-xl font-mono font-bold absolute top-8">Time Together</h3>
-    <div class="grid grid-cols-7 gap-1 my-flex">
-        <div *ngFor="let time of timer">
-            <div class="bg-pink-600 text-center h-[68%] rounded-lg text-2xl p-[10%]">{{ time.value }}</div>
-            <p class="w-[100%] text-center mt-[5%]">{{ time.unit }}</p>
-        </div>
+<div class="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl mt-6 md:mt-10 p-4 md:p-8">
+  <h3 class="text-black text-xl md:text-2xl font-mono font-bold mb-4 text-center">
+    Time Together
+  </h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4">
+    <div *ngFor="let time of timer">
+      <div class="bg-pink-600 text-center rounded-lg text-lg md:text-2xl p-2 md:p-4 flex items-center justify-center h-16 md:h-20">
+        {{ time.value }}
+      </div>
+      <p class="w-full text-center mt-1 text-xs md:text-base">
+        {{ time.unit }}
+      </p>
     </div>
+  </div>
 </div>

@@ -1,0 +1,29 @@
+<div class="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl mt-6 md:mt-10 mb-6 md:mb-10 p-4 md:p-8">
+  <h3 class="text-black text-xl md:text-2xl font-mono font-bold mb-4 text-center">
+    Relationship Milestones
+  </h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+    <div
+      class="rounded-lg border-2 flex items-center"
+      *ngFor="let milestone of milestones"
+      [ngClass]="{
+        'bg-green-400': milestone.achieved,
+        'border-green-700': milestone.achieved,
+        'bg-red-300': !milestone.achieved,
+        'border-red-600': !milestone.achieved
+      }"
+    >
+      <div class="flex flex-col items-center justify-center w-full py-2">
+        <p class="text-base md:text-lg font-mono font-bold text-center">
+          {{ milestone.description }}
+        </p>
+        <p class="text-xs md:text-sm font-mono text-center">
+          {{ milestone.date | date: 'dd.MM.yyyy' }}
+        </p>
+        <p class="text-xs md:text-sm font-mono text-center">
+          {{ milestone.remainingDays }} days left
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
