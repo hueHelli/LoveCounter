@@ -17,27 +17,53 @@ export class Counter {
     { unit: 'Minuten', value: 0 },
     { unit: 'Sekunden', value: 0 },
   ];
-  date: Date = new Date(2025, 7, 1, 0, 0, 0); // Set your target date here
+  date: Date = new Date(2025, 0, 22, 0, 0, 0); // Set your target date here
 
-  updateTimer(){
+  updateTimer() {
     const now = new Date();
-    const diff = Math.abs(now.getTime() - this.date.getTime());
+    const start = new Date(this.date); // das Ursprungsdatum
 
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
+    let years = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+    let days = now.getDate() - start.getDate();
+    let hours = now.getHours() - start.getHours();
+    let minutes = now.getMinutes() - start.getMinutes();
+    let seconds = now.getSeconds() - start.getSeconds();
+
+    // Korrekturen rückwärts rechnen, falls negative Werte
+    if (seconds < 0) {
+      seconds += 60;
+      minutes--;
+    }
+    if (minutes < 0) {
+      minutes += 60;
+      hours--;
+    }
+    if (hours < 0) {
+      hours += 24;
+      days--;
+    }
+    if (days < 0) {
+      const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+      days += previousMonth.getDate(); // Tage des vorherigen Monats
+      months--;
+    }
+    if (months < 0) {
+      months += 12;
+      years--;
+    }
+
+    // Wochen berechnen aus Tagen
     const weeks = Math.floor(days / 7);
-    const months = Math.floor(weeks / 4.345); // Approximate month length
-    const years = Math.floor(months / 12);
+    days = days % 7;
 
     this.timer[0].value = years;
-    this.timer[1].value = months % 12;
-    this.timer[2].value = weeks % 4;
-    this.timer[3].value = days % 7;
-    this.timer[4].value = hours % 24;
-    this.timer[5].value = minutes % 60;
-    this.timer[6].value = seconds % 60;
+    this.timer[1].value = months;
+    this.timer[2].value = weeks;
+    this.timer[3].value = days;
+    this.timer[4].value = hours;
+    this.timer[5].value = minutes;
+    this.timer[6].value = seconds;
 
     setTimeout(() => this.updateTimer(), 1000);
   }

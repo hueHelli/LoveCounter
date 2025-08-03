@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { Counter } from './counter/counter';
+import { Quotes } from './quotes/quotes';
 
 @Component({
   selector: 'app-root',
-  imports: [Counter],
+  imports: [Counter, Quotes],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
