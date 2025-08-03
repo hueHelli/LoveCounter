@@ -17,7 +17,7 @@ export class Counter {
     { unit: 'Minuten', value: 0 },
     { unit: 'Sekunden', value: 0 },
   ];
-  date: Date = new Date(2025, 0, 22, 0, 0, 0); // Set your target date here
+  date: Date = new Date(2025, 7, 1, 0, 0, 0); // Set your target date here
 
   updateTimer() {
     const now = new Date();

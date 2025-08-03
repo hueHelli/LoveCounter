@@ -1,7 +1,13 @@
-<div class="w-[70vw] h-[25vh] mt-[7vh] ml-[15vw] bg-white rounded-2xl shadow-2xl relative p-[4%]">
-    <h3 class="text-black text-xl font-mono font-bold absolute top-8">Love Quote</h3>
-    <div class="w-[100%] h-[150%] bg-pink-100 rounded-lg p-[1%] pr-[20%] relative">
-        <p class="text-black text-mono text-lg"><b>"{{ selectedQuote!.content }}"</b></p>
-        <p class="text-black text-mono absolute bottom-4 right-4">- {{ selectedQuote!.author }}</p>
-    </div>
+<div class="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl mt-6 md:mt-10 p-4 md:p-8">
+  <h3 class="text-black text-xl md:text-2xl font-mono font-bold mb-4 text-center">
+    Love Quote
+  </h3>
+  <div class="w-full bg-pink-100 rounded-lg p-2 md:p-4 relative">
+    <p class="text-black font-mono text-base md:text-lg font-bold text-center">
+      <b>"{{ selectedQuote!.content }}"</b>
+    </p>
+    <p class="text-black font-mono text-right mt-2 md:mt-4">
+      - {{ selectedQuote!.author }}
+    </p>
+  </div>
 </div>
